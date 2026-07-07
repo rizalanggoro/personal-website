@@ -95,7 +95,7 @@ function Home() {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <div className="inline-block rounded-full bg-[#FFF3ED] px-4 py-2">
+          <div className="inline-block rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-4 py-2">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#FF6B35]">
               Now available
             </span>
@@ -263,7 +263,7 @@ function Home() {
                   {project.techs.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full bg-[#FFF3ED] px-3 py-1 text-xs font-medium text-[#FF6B35]"
+                      className="rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-3 py-1 text-xs font-medium text-[#FF6B35]"
                     >
                       {tech}
                     </span>
