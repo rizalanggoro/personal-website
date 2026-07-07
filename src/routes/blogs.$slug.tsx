@@ -57,7 +57,7 @@ function BlogDetail() {
               <span>•</span>
               <span>{blog.readTime}</span>
               <span>•</span>
-              <span className="rounded-full bg-[#FFF3ED] px-3 py-0.5 text-xs font-medium text-[#FF6B35]">
+              <span className="rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-3 py-0.5 text-xs font-medium text-[#FF6B35]">
                 {blog.category}
               </span>
             </div>

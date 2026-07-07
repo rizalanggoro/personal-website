@@ -245,12 +245,12 @@ function Home() {
               <ArrowRight size={18} />
             </Link>
           </div>
-          <div className="space-y-8">
+          <div className="grid gap-8 md:grid-cols-2">
             {featuredProjects.map((project, idx) => (
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="group space-y-4 border-b border-[#E5E5E0] pb-8 last:border-b-0"
+                className="group space-y-4 rounded-lg border border-[#E5E5E0] bg-white p-6"
               >
                 <h3
                   className="text-2xl font-bold transition-colors group-hover:text-[#FF6B35]"

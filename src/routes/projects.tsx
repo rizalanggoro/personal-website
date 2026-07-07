@@ -261,7 +261,7 @@ function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-full bg-[#FFF3ED] px-3 py-1 text-xs font-medium text-[#FF6B35]"
+                        className="rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-3 py-1 text-xs font-medium text-[#FF6B35]"
                       >
                         {tech}
                       </span>

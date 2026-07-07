@@ -100,7 +100,7 @@ function BlogIndex() {
                 <span>•</span>
                 <span>{post.readTime}</span>
                 <span>•</span>
-                <span className="rounded-full bg-[#FFF3ED] px-3 py-0.5 text-xs font-medium text-[#FF6B35]">
+                <span className="rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-3 py-0.5 text-xs font-medium text-[#FF6B35]">
                   {post.category}
                 </span>
               </div>
@@ -115,20 +115,6 @@ function BlogIndex() {
               </Link>
             </motion.article>
           ))}
-        </motion.div>
-      </section>
-
-      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="rounded-lg border border-zinc-200 bg-zinc-50 p-8 text-center dark:border-zinc-800 dark:bg-zinc-900"
-        >
-          <p className="text-zinc-600 dark:text-zinc-400">
-            More articles coming soon. Subscribe to GitHub for updates!
-          </p>
         </motion.div>
       </section>
     </div>

@@ -16,6 +16,7 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 reactuser
 
 COPY --from=builder /app/.output ./dist
+COPY --from=builder /app/content ./content
 COPY --from=builder /app/package.json ./
 
 USER reactuser
