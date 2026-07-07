@@ -1,5 +1,6 @@
-
 @import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -15,3 +16,29 @@ body {
   margin: 0;
 }
 
+/* Color System */
+:root {
+  --brand-accent: #ff6b35;
+  --brand-accent-hover: #e55a24;
+  --neutral-bg: #fafaf8;
+  --neutral-text: #1a1a1a;
+  --neutral-border: #e5e5e0;
+}
+
+/* Typography */
+.serif-display {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.serif-semi {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.sans-regular {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
