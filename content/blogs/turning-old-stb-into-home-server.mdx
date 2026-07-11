@@ -1,0 +1,127 @@
+---
+title: "Turning an Old STB Into a Home Server"
+date: "2026-07-12"
+readTime: "5 min read"
+category: "Homelab"
+excerpt: "Turning a used Indihome HG680P STB into an ArmBian-powered home server, from buying the hardware to first boot."
+---
+
+# Turning an Old STB Into a Home Server
+
+I picked up a used Indihome STB (Set-Top Box) that was already unlocked, mostly out of curiosity. Turns out it makes a decent little home server. Perfect for learning, hosting lightweight services, or just having a lab box to tinker with.
+
+Specs are modest but workable for an entry-level home server:
+
+- **CPU**: 4-core ARM Cortex-A53
+- **RAM**: 2 GB
+- **Storage**: 128 GB SSD (external via USB 2.0)
+
+Total cost was way cheaper than a Raspberry Pi or a mini PC. Great option if you want to dip your toes into homelabbing without spending much.
+
+## What You'll Need
+
+1. **Indihome HG680P STB**: buy it online, make sure it's already unlocked
+2. **128 GB SSD**: used or new, either works
+3. **USB to SATA adapter**: to connect the SSD to the STB
+4. **PC or laptop**: for flashing the image
+5. **BalenaEtcher**: flashing tool (download at [balena.io/etcher](https://www.balena.io/etcher))
+
+## Step-by-Step
+
+### 1. Get the Armbian Image
+
+Armbian is a Linux distro optimized for ARM devices. A perfect fit for this STB. Grab the right image from this GitHub repo:
+
+https://github.com/ophub/amlogic-s9xxx-armbian
+
+The HG680P runs on an **S905X** chipset, so look for an image with this code: `s905x_b860h_noble`
+
+Download the file. It'll be in `.img.gz` format (compressed). Extract it before the next step.
+
+### 2. Flash the Image to the SSD
+
+Plug the SSD (via USB adapter) into your PC and open **BalenaEtcher**:
+
+1. Select the extracted Armbian image
+2. Pick the target drive. **Double-check it's the SSD, not your main drive**
+3. Click **Flash**
+
+<Callout type="warning">
+  Flashing wipes all data on the target drive. Make sure there's nothing
+  important on the SSD.
+</Callout>
+
+Once it finishes and passes verification, unplug the SSD from your PC.
+
+### 3. Connect the SSD to the STB
+
+Hook the SSD up to your STB using the USB to SATA adapter and plug it into the **USB 2.0** port. USB 2.0 isn't fast, but for basic use (file server, light web server) it's good enough.
+
+### 4. Change the Boot Order
+
+An unlocked STB usually gives you access to the boot menu. Power on the STB while holding the reset button (or the relevant button on the remote; depends on the firmware) to enter the **boot menu**.
+
+Look for the **Boot Order** setting and set **USB / SD Card** as the first option. Save and restart.
+
+The STB should now boot from the SSD automatically.
+
+### 5. Boot Into Armbian
+
+If everything went right, Armbian will start booting from the SSD. The first boot usually takes a bit longer. It's generating SSH keys and resizing the partition.
+
+Once you're in, change the default password. If you want remote access, check the IP address:
+
+```bash
+ip a
+```
+
+Then SSH in from another machine:
+
+```bash
+ssh root@<ip-address>
+```
+
+### 6. Setup Tailscale, Docker, and Komodo
+
+Now that SSH works, let's make this server actually useful.
+
+First, install **Tailscale** so you can SSH into the STB from anywhere within a private VPN network:
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+
+Follow the auth URL to link the device to your Tailscale account. After that, you can SSH from any device on your tailnet using the Tailscale IP or hostname.
+
+Next, install **Docker** for running your projects in containers:
+
+```bash
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+```
+
+Log out and back in (or `newgrp docker`) so you can run Docker without sudo.
+
+Finally, install **Komodo** to manage your Docker containers with automatic updates and redeployment for CI/CD:
+
+```bash
+curl -O https://raw.githubusercontent.com/moghtech/komodo/main/docker-compose.mongo.yml
+docker compose -f docker-compose.mongo.yml up -d
+```
+
+This pulls the Komodo stack with MongoDB. Once it's running, access the web UI at `http://<stb-ip>:9120` and follow the setup wizard. You can then connect your git repos, define builds, and Komodo will automatically pull new images and redeploy whenever you push.
+
+## Impressions
+
+After running it for a few days:
+
+- **Power draw is very low**. Fine to leave on 24/7.
+- **Performance is adequate**. Handles lightweight services (Nginx, Tailscale, WireGuard, etc.).
+- **USB 2.0 is the bottleneck**. File transfers are slow, but acceptable for casual use.
+- **STB is stable**. No random reboots so far.
+
+## References
+
+- Armbian for Amlogic repos: https://github.com/ophub/amlogic-s9xxx-armbian
+- BalenaEtcher: https://www.balena.io/etcher
