@@ -1,4 +1,4 @@
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { EnvelopeSimple, List } from "@phosphor-icons/react";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import {
   HeadContent,
@@ -12,6 +12,11 @@ import "../styles.css";
 import { ThemeProvider } from "#/components/theme-provider";
 import { ThemeToggle } from "#/components/theme-toggle";
 import { Button } from "#/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "#/components/ui/sheet";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -92,7 +97,9 @@ function Header() {
           >
             Rizal.
           </Link>
-          <div className="flex items-center gap-8">
+
+          {/* Desktop nav */}
+          <div className="hidden items-center gap-8 md:flex">
             <Link
               to="/"
               className="text-sm font-medium transition-colors hover:text-[#FF6B35]"
@@ -122,6 +129,47 @@ function Header() {
                 <EnvelopeSimple size={16} weight="fill" />
               </a>
             </Button>
+          </div>
+
+          {/* Mobile nav */}
+          <div className="flex items-center gap-3 md:hidden">
+            <ThemeToggle />
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <List size={20} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[250px] p-6">
+                <nav className="mt-8 flex flex-col gap-6">
+                  <Link
+                    to="/"
+                    className="text-lg font-medium transition-colors hover:text-[#FF6B35]"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/projects"
+                    className="text-lg font-medium transition-colors hover:text-[#FF6B35]"
+                  >
+                    Work
+                  </Link>
+                  <Link
+                    to="/blogs"
+                    className="text-lg font-medium transition-colors hover:text-[#FF6B35]"
+                  >
+                    Writing
+                  </Link>
+                  <a
+                    href="mailto:gnoogler4@gmail.com"
+                    className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+                  >
+                    <EnvelopeSimple size={16} weight="fill" />
+                    Email
+                  </a>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>
