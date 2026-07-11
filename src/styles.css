@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -47,7 +49,7 @@ body {
   --neutral-text: #1a1a1a;
   --neutral-border: #e5e5e0;
 
-  /* shadcn CSS variables */
+  /* shadcn CSS variables — light */
   --background: var(--neutral-bg);
   --foreground: var(--neutral-text);
   --card: oklch(1 0 0);
@@ -68,6 +70,28 @@ body {
   --input: var(--neutral-border);
   --ring: var(--neutral-text);
   --radius: 0.5rem;
+}
+
+.dark {
+  --background: oklch(0.13 0.008 80);
+  --foreground: oklch(0.97 0.005 80);
+  --card: oklch(0.17 0.008 80);
+  --card-foreground: oklch(0.97 0.005 80);
+  --popover: oklch(0.17 0.008 80);
+  --popover-foreground: oklch(0.97 0.005 80);
+  --primary: oklch(0.97 0.005 80);
+  --primary-foreground: oklch(0.13 0.008 80);
+  --secondary: oklch(0.22 0.008 80);
+  --secondary-foreground: oklch(0.85 0.005 80);
+  --muted: oklch(0.22 0.008 80);
+  --muted-foreground: oklch(0.6 0.008 80);
+  --accent: var(--brand-accent);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.27 0.008 80);
+  --input: oklch(0.27 0.008 80);
+  --ring: oklch(0.6 0.008 80);
 }
 
 /* Typography */

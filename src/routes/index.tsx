@@ -109,7 +109,7 @@ function Home() {
               Building elegant solutions
               <span className="block text-[#FF6B35]">for complex problems</span>
             </h1>
-            <p className="max-w-2xl text-lg leading-relaxed text-[#666]">
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Full-stack developer crafting scalable web and IoT systems.
               Currently a final-year Informatics student at Sebelas Maret
               University, passionate about creating thoughtful software.
@@ -148,7 +148,7 @@ function Home() {
             >
               4+
             </h3>
-            <p className="text-[#666]">
+            <p className="text-muted-foreground">
               Years of hands-on development experience
             </p>
           </motion.div>
@@ -159,7 +159,7 @@ function Home() {
             >
               10+
             </h3>
-            <p className="text-[#666]">
+            <p className="text-muted-foreground">
               Production projects shipped and deployed
             </p>
           </motion.div>
@@ -170,7 +170,7 @@ function Home() {
             >
               100+
             </h3>
-            <p className="text-[#666]">
+            <p className="text-muted-foreground">
               Students mentored as teaching assistant
             </p>
           </motion.div>
@@ -199,7 +199,7 @@ function Home() {
                 <motion.div
                   key={category.title}
                   variants={itemVariants}
-                  className="rounded-lg border border-[#E5E5E0] bg-white p-6"
+                  className="rounded-lg border border-border bg-card p-6"
                 >
                   <div className="flex items-center gap-3">
                     <Icon size={24} weight="fill" className="text-[#FF6B35]" />
@@ -207,7 +207,7 @@ function Home() {
                   </div>
                   <div className="mt-4 space-y-2">
                     {category.techs.map((tech) => (
-                      <span key={tech} className="block text-sm text-[#666]">
+                      <span key={tech} className="block text-sm text-muted-foreground">
                         • {tech}
                       </span>
                     ))}
@@ -237,7 +237,7 @@ function Home() {
             </h2>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 text-[#FF6B35] transition-colors hover:text-[#1a1a1a] font-medium"
+              className="inline-flex items-center gap-2 text-[#FF6B35] transition-colors hover:text-foreground font-medium"
             >
               View all
               <ArrowRight size={18} />
@@ -248,7 +248,7 @@ function Home() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="group space-y-4 rounded-lg border border-[#E5E5E0] bg-white p-6"
+                className="group space-y-4 rounded-lg border border-border bg-card p-6"
               >
                 <h3
                   className="text-2xl font-bold transition-colors group-hover:text-[#FF6B35]"
@@ -256,7 +256,7 @@ function Home() {
                 >
                   {project.title}
                 </h3>
-                <p className="text-[#666]">{project.description}</p>
+                <p className="text-muted-foreground">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.techs.map((tech) => (
                     <Badge key={tech} variant="tech">
@@ -266,7 +266,7 @@ function Home() {
                 </div>
                 <Link
                   to={project.link}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[#FF6B35] transition-colors group-hover:text-[#1a1a1a]"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-[#FF6B35] transition-colors group-hover:text-foreground"
                 >
                   Learn more
                   <ArrowRight size={14} />
@@ -292,7 +292,7 @@ function Home() {
           >
             Let's Work Together
           </h2>
-          <p className="mx-auto max-w-xl text-lg text-[#666]">
+          <p className="mx-auto max-w-xl text-lg text-muted-foreground">
             Have a project idea or want to collaborate? I'd love to hear from
             you.
           </p>

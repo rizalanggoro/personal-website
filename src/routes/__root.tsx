@@ -9,6 +9,8 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import "../styles.css";
+import { ThemeProvider } from "#/components/theme-provider";
+import { ThemeToggle } from "#/components/theme-toggle";
 import { Button } from "#/components/ui/button";
 
 export const Route = createRootRoute({
@@ -48,14 +50,16 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           }
         `}</style>
       </head>
-      <body className="bg-[#FAFAF8] text-[#1a1a1a]">
-        <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.15]" style={{
+      <body className="bg-background text-foreground">
+        <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.15] dark:opacity-[0.08] dark:invert" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")`,
         }} />
         <div className="relative z-10 flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <ThemeProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </ThemeProvider>
         </div>
         <TanStackDevtools
           config={{
@@ -76,7 +80,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E5E5E0] bg-[#FAFAF8]/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <nav className="mx-auto max-w-7xl px-6 py-5 lg:px-8">
         <div className="flex items-center justify-between">
           <Link
@@ -104,6 +108,7 @@ function Header() {
             >
               Writing
             </Link>
+            <ThemeToggle />
             <Button
               asChild
               variant="default"
@@ -124,17 +129,17 @@ function Header() {
 function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="border-t border-[#E5E5E0] bg-[#FAFAF8]">
+    <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
           <div>
             <h3 className="text-lg font-bold">Rizal Dwi Anggoro</h3>
-            <p className="mt-2 text-sm text-[#666]">
+            <p className="mt-2 text-sm text-muted-foreground">
               Full-stack developer | Magelang, Central Java
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <p className="text-xs font-medium uppercase tracking-widest text-[#999]">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
               Connect
             </p>
             <div className="flex gap-4">
@@ -142,27 +147,27 @@ function Footer() {
                 href="https://github.com/rizalanggoro"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-[#333]"
+                className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-foreground"
               >
                 GitHub
               </a>
               <a
                 href="mailto:gnoogler4@gmail.com"
-                className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-[#333]"
+                className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-foreground"
               >
                 Email
               </a>
               <a
                 href="/cv.md"
                 download
-                className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-[#333]"
+                className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-foreground"
               >
                 CV
               </a>
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-[#E5E5E0] pt-8 text-center text-xs text-[#999]">
+        <div className="mt-12 border-t border-border pt-8 text-center text-xs text-muted-foreground">
           <p>© {currentYear} Rizal Dwi Anggoro. All rights reserved.</p>
         </div>
       </div>

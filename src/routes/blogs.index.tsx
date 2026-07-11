@@ -38,7 +38,7 @@ function BlogIndex() {
 
   return (
     <div className="space-y-16">
-      <section className="border-b border-[#E5E5E0] bg-[#FAFAF8]">
+      <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-6 py-20 lg:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ function BlogIndex() {
             >
               Writing
             </h1>
-            <p className="text-lg text-[#666]">
+            <p className="text-lg text-muted-foreground">
               Technical insights and explorations in full-stack development,
               DevOps, and teaching.
             </p>
@@ -71,7 +71,7 @@ function BlogIndex() {
             <motion.article
               key={post.slug}
               variants={itemVariants}
-              className="group space-y-4 border-b border-[#E5E5E0] pb-12 last:border-b-0"
+              className="group space-y-4 border-b border-border pb-12 last:border-b-0"
             >
               <div className="space-y-3">
                 <Link
@@ -87,10 +87,10 @@ function BlogIndex() {
                   </h2>
                 </Link>
 
-                <p className="text-[#666]">{post.excerpt}</p>
+                <p className="text-muted-foreground">{post.excerpt}</p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-sm text-[#999]">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
                 <span>
                   {new Date(post.date).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -107,7 +107,7 @@ function BlogIndex() {
               <Link
                 to="/blogs/$slug"
                 params={{ slug: post.slug }}
-                className="inline-flex items-center gap-2 font-medium text-[#FF6B35] transition-colors group-hover:text-[#1a1a1a]"
+                className="inline-flex items-center gap-2 font-medium text-[#FF6B35] transition-colors group-hover:text-foreground"
               >
                 Read article
                 <ArrowRight size={16} />

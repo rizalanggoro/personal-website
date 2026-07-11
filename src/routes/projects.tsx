@@ -38,7 +38,7 @@ function Projects() {
   return (
     <div className="space-y-16">
       {/* Page Header */}
-      <section className="border-b border-[#E5E5E0] bg-[#FAFAF8]">
+      <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-6 py-20 lg:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ function Projects() {
             >
               My Work
             </h1>
-            <p className="max-w-2xl text-lg text-[#666]">
+            <p className="max-w-2xl text-lg text-muted-foreground">
               Full-stack products and systems I've built, from IoT solutions to
               web applications. Each project represents real-world problems
               solved with thoughtful architecture and clean code.
@@ -74,7 +74,7 @@ function Projects() {
               key={project.id}
               variants={itemVariants}
               id={project.id}
-              className="scroll-mt-24 space-y-8 border-b border-[#E5E5E0] pb-20 last:border-b-0 last:pb-0"
+              className="scroll-mt-24 space-y-8 border-b border-border pb-20 last:border-b-0 last:pb-0"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -84,43 +84,43 @@ function Projects() {
                   >
                     {project.title}
                   </h2>
-                  <span className="text-sm font-medium text-[#999]">
+                  <span className="text-sm font-medium text-muted-foreground">
                     {project.year}
                   </span>
                 </div>
-                <p className="text-lg text-[#666]">{project.description}</p>
+                <p className="text-lg text-muted-foreground">{project.description}</p>
               </div>
 
               <div className="grid gap-12 md:grid-cols-2">
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-bold uppercase tracking-widest text-[#999] text-xs">
+                    <h3 className="font-bold uppercase tracking-widest text-muted-foreground text-xs">
                       Problem
                     </h3>
-                    <p className="mt-3 text-[#666]">{project.problem}</p>
+                    <p className="mt-3 text-muted-foreground">{project.problem}</p>
                   </div>
                   <div>
-                    <h3 className="font-bold uppercase tracking-widest text-[#999] text-xs">
+                    <h3 className="font-bold uppercase tracking-widest text-muted-foreground text-xs">
                       Solution
                     </h3>
-                    <p className="mt-3 text-[#666]">{project.solution}</p>
+                    <p className="mt-3 text-muted-foreground">{project.solution}</p>
                   </div>
                 </div>
 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-bold uppercase tracking-widest text-[#999] text-xs">
+                    <h3 className="font-bold uppercase tracking-widest text-muted-foreground text-xs">
                       My Role
                     </h3>
-                    <p className="mt-3 text-[#666]">{project.role}</p>
+                    <p className="mt-3 text-muted-foreground">{project.role}</p>
                   </div>
                   <div>
-                    <h3 className="font-bold uppercase tracking-widest text-[#999] text-xs">
+                    <h3 className="font-bold uppercase tracking-widest text-muted-foreground text-xs">
                       Impact
                     </h3>
                     <ul className="mt-3 space-y-2">
                       {project.impact.map((item, i) => (
-                        <li key={i} className="text-[#666]">
+                        <li key={i} className="text-muted-foreground">
                           • {item}
                         </li>
                       ))}
@@ -131,7 +131,7 @@ function Projects() {
 
               <div className="space-y-6 pt-6">
                 <div>
-                  <h3 className="font-bold uppercase tracking-widest text-[#999] text-xs mb-3">
+                  <h3 className="font-bold uppercase tracking-widest text-muted-foreground text-xs mb-3">
                     Tech Stack
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -149,7 +149,7 @@ function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-[#1a1a1a]"
+                      className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-foreground"
                     >
                       → GitHub
                     </a>
@@ -159,7 +159,7 @@ function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-[#1a1a1a]"
+                      className="text-sm font-medium text-[#FF6B35] transition-colors hover:text-foreground"
                     >
                       → Live Demo
                     </a>
