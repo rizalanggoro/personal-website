@@ -1,3 +1,4 @@
+import { Badge } from "#/components/ui/badge";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
@@ -57,9 +58,7 @@ function BlogDetail() {
               <span>•</span>
               <span>{blog.readTime}</span>
               <span>•</span>
-              <span className="rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-3 py-0.5 text-xs font-medium text-[#FF6B35]">
-                {blog.category}
-              </span>
+              <Badge variant="tech">{blog.category}</Badge>
             </div>
           </motion.div>
         </div>

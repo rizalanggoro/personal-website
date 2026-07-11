@@ -1,3 +1,4 @@
+import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
 import {
   ArrowRight,
@@ -96,11 +97,9 @@ function Home() {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <div className="inline-block rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-4 py-2">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#FF6B35]">
-              Now available
-            </span>
-          </div>
+          <Badge variant="tech" className="px-4 py-2 text-xs font-semibold uppercase tracking-widest">
+            Available — let's talk
+          </Badge>
 
           <div className="space-y-6">
             <h1
@@ -260,12 +259,9 @@ function Home() {
                 <p className="text-[#666]">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.techs.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-[#FF6B35]/30 bg-[#FFF3ED] px-3 py-1 text-xs font-medium text-[#FF6B35]"
-                    >
+                    <Badge key={tech} variant="tech">
                       {tech}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
                 <Link
