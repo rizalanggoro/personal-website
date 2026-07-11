@@ -9,6 +9,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import "../styles.css";
+import { Button } from "#/components/ui/button";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -103,12 +104,16 @@ function Header() {
             >
               Writing
             </Link>
-            <a
-              href="mailto:gnoogler4@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-5 py-2 text-sm font-medium text-white transition-all hover:bg-[#333]"
+            <Button
+              asChild
+              variant="default"
+              size="default"
+              className="h-9 px-4"
             >
-              <EnvelopeSimple size={16} weight="fill" />
-            </a>
+              <a href="mailto:gnoogler4@gmail.com">
+                <EnvelopeSimple size={16} weight="fill" />
+              </a>
+            </Button>
           </div>
         </div>
       </nav>

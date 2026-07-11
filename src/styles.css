@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius: var(--radius);
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
 
 * {
@@ -23,6 +46,28 @@ body {
   --neutral-bg: #fafaf8;
   --neutral-text: #1a1a1a;
   --neutral-border: #e5e5e0;
+
+  /* shadcn CSS variables */
+  --background: var(--neutral-bg);
+  --foreground: var(--neutral-text);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--neutral-text);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--neutral-text);
+  --primary: var(--neutral-text);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.965 0.003 80);
+  --secondary-foreground: var(--neutral-text);
+  --muted: oklch(0.965 0.003 80);
+  --muted-foreground: oklch(0.55 0.01 80);
+  --accent: var(--brand-accent);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: var(--neutral-border);
+  --input: var(--neutral-border);
+  --ring: var(--neutral-text);
+  --radius: 0.5rem;
 }
 
 /* Typography */

@@ -1,3 +1,4 @@
+import { Button } from "#/components/ui/button";
 import {
   ArrowRight,
   Code,
@@ -117,19 +118,17 @@ function Home() {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-6 py-3 font-medium text-white transition-all hover:bg-[#333] active:scale-95"
-            >
-              View My Work
-              <ArrowRight size={18} />
-            </Link>
-            <a
-              href="mailto:gnoogler4@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#E5E5E0] px-6 py-3 font-medium transition-all hover:border-[#FF6B35] hover:bg-[#FFF3ED]"
-            >
-              Get In Touch
-            </a>
+            <Button asChild variant="default" size="lg">
+              <Link to="/projects">
+                View My Work
+                <ArrowRight size={18} />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href="mailto:gnoogler4@gmail.com">
+                Get In Touch
+              </a>
+            </Button>
           </div>
         </motion.div>
       </section>
@@ -302,21 +301,21 @@ function Home() {
             you.
           </p>
           <div className="flex justify-center gap-4">
-            <a
-              href="mailto:gnoogler4@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-8 py-3 font-medium text-white transition-all hover:bg-[#333] active:scale-95"
-            >
-              Get In Touch
-            </a>
-            <a
-              href="https://github.com/rizalanggoro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#E5E5E0] px-8 py-3 font-medium transition-all hover:border-[#FF6B35] hover:bg-[#FFF3ED]"
-            >
-              <GithubLogo size={18} weight="fill" />
-              GitHub
-            </a>
+            <Button asChild variant="default" size="lg">
+              <a href="mailto:gnoogler4@gmail.com">
+                Get In Touch
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a
+                href="https://github.com/rizalanggoro"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubLogo size={18} weight="fill" />
+                GitHub
+              </a>
+            </Button>
           </div>
         </motion.div>
       </section>
