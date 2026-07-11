@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-import appCss from "../styles.css?url";
+import "../styles.css";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -27,12 +27,6 @@ export const Route = createRootRoute({
       },
       {
         title: "Rizal Dwi Anggoro - Developer Portfolio",
-      },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
       },
     ],
   }),
